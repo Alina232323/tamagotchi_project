@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=DynaPuff&family-Montserrat:wght@500&display=swap");
+
+html{
+    background: url("/images/day.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+  
+   }
+  
+
+.welcome-screen{
+
+    margin: auto;
+    width: 40%;
+    padding: 100px;
+    text-align: center;
+    font-family: "DynaPuff", cursive;
+}
+::placeholder{
+    color: rgb(205, 205, 205);
+    font-size: 1rem;
+
+}
+input{
+    padding:10px;
+    border-radius:10px;
+}
+button{
+
+      background-color: #3DD1E7;
+      border: 0 solid #E5E7EB;
+      box-sizing: border-box;
+      color: #000000;
+      display:flex;
+      font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-size: 4rem;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1rem;
+      padding: .75rem 1.65rem;
+      position: inherit;
+      text-align: center;
+      text-decoration: none #000000 solid;
+      width: 10%;
+      max-width: 460px;
+      position: center;
+      cursor: pointer;
+      transform: rotate(-2deg);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    
+button:focus {
+      outline: 0;
+    }
+    
+button:after {
+      content: '';
+      position: absolute;
+      border: 1px solid #000000;
+      bottom: 4px;
+      left: 4px;
+      width: calc(100% - 1px);
+      height: calc(100% - 1px);
+    }
+    
+button:hover:after {
+      bottom: 2px;
+      left: 2px;
+    }
+    
+    @media (min-width: 768px) {
+      button {
+        padding: .5rem 3rem;
+        font-size: 1.25rem;
+      }
+    }
+  
