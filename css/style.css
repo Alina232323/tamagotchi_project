@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&family=DynaPuff&family-Montserrat:wght@500&display=swap");
 
-/* body{
+body{
     background: url("/images/day.jpg")no-repeat center fixed;
     background-position: 1px 8px;
     -webkit-background-size: 100% 100%;
@@ -12,8 +12,8 @@
     position: relative;
     
   
-   } */
-body{
+   }
+/* body{
     background: url("/images/night.jpg")no-repeat center fixed;
     background-position: 1px 8px;
     -webkit-background-size: 100% 100%;
@@ -25,32 +25,32 @@ body{
     position: relative;
     
    }
-  
+   */
 
+
+
+/* parent plant class with all plant images */
 .plant{
-  position:absolute;
-  top:320px;
-  margin-left:600px;
-
+  position: absolute;
+  top:140px;
+  margin-left:300px; 
 }
 
-.hide {
-  display: none;
+#empty{
+  z-index:1;
+}
+#start-growing{
+  z-index: -1;
+}
+#growing-plant {
+  z-index: -2;
+}
+#grown-plant{
+  z-index:-3;
 }
 
-.screen#game{
 
-    margin: auto;
 
-    width: 40%;
-    padding: 10px, 10px, 10px;
-    text-align: center;
-    font-family: "DynaPuff", cursive;
-    
-}
-#action-items{
-  display: inline-block
-}
 ::placeholder{
     color: rgb(205, 205, 205);
     font-size: 1rem;
@@ -131,7 +131,7 @@ input{
   
 }
 
-
+/* main screen */
 .screen#game{
   margin:80px;
   width: 100%;
@@ -149,6 +149,8 @@ input{
   opacity: calc(70%);
 }
 
+
+/* neon Score sign */
 p1{
   font-size:xx-large;
   color: #3DD1E7;

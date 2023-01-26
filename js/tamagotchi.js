@@ -1,16 +1,37 @@
-const maxWater = 100;
-const maxLight = 100;
-const maxFertilizer = 100;
-
-class Tamagotchi{
-    constructor(name){
+class Tamagotchi {
+    constructor(name) {
         this.name = name;
-        this.water = maxWater;
-        this.sunshine = maxLight;
-        this.fertilizer = maxFertilizer;
+        this.water = 100;
+        this.sunshine = 100;
+        this.fertilizer = 100;
         this.age = 0;
         this.score = 0;
     }
+    addWater() {
+        this.water += 10
+        document.body.style.backgroundImage = "url(/images/night.jpg)"
+    }
+
+    lightSwitch() {
+        this.sunshine += 10
+        document.body.style.backgroundImage = "url(/images/day.jpg)"
+    }
+    addFertilizer() {
+        this.fertilizer += 10
+    }
+
+    changePlantAppearence() {
+        if (this.age.innerHTML <= 1) {
+            document.body.style.display = "url(/images/empty.png)"
+        } else if (this.age.innerHTML > 1 && this.age.innerHTML <= 5) {
+            document.body.style.display = "url(/images/atart-growing.png)"
+        } else if (this.age.innerHTML > 5 && this.age.innerHTML <= 10) {
+            document.body.style.display = "url(/images/growing-plant.png)"
+        } else if (this.age.innerHTML > 10 && this.age.innerHTML <= 20) {
+            document.body.style.display = "url(/images/grown-plant.png)"
+        }
+    }
+
 }
 let inputName = prompt("Please, enter a name for your plant:", "")
 const newPlant = new Tamagotchi(inputName)
@@ -29,89 +50,40 @@ const ferScore = document.querySelector("#fertilizer")
 const ageScore = document.querySelector("#age")
 
 
-
-
-let day = 10
-
-addWater=()=>{
-    this.water +=10
-    document.body.style.backgroundImage = "url(/images/night.jpg)"
-}
-
-lightSwitch=()=>{
-    this.sunshine +=10
-    document.body.style.backgroundImage = "url(/images/day.jpg)"
-}
-addFertilizer =()=> {
-	this.fertilizer+=10 
-}
-
-newPlant.clock = function() {
-    this.water-=1
-    this.sunshine-=1
-    this.fertilizer-=1
-    this.age+=1
-}
-//add event listeners to each button + call functions for each button
-waterButton.addEventListener("click", () =>{
-    return this.addWater()
-})
-lightButton.addEventListener("click", () =>{
-    return this.lightSwitch()
-})
-ferButton.addEventListener("click", () =>{
-    return this.addFertilizer()
-})
-
-
-changeTamagotchiPhase=()=>{
-    if(newPlant.age.innerHTML <= 5){
-        document.body.style.display ="url(/images/empty.jpg)"
-    }else if(newPlant.age.innerHTML > 5 && newPlant.age.innerHTML <= 10){
-        document.body.style.display ="url(/images/atart-growing.jpg)"
-    }else if(newPlant.age.innerHTML > 5 && newPlant.age.innerHTML <= 10){
-        document.body.style.display = "url(/images/growing-plant.jpg)"
-    }else if(newPlant.age.innerHTML > 10 && newPlant.age.innerHTML <= 20){
-        document.body.style.display = "url(/images/grown-plant.jpg)"
-    }
-}
-changeTamagotchiPhase()
-    
 let waterCount
 let lightCount
 let fertilizerCount
 let score = 0
 let age = 0
 
-play()
-let playUpdate = setInterval(play, 100 * day)
 
-function play(){
 
-	waterCount = (newPlant.water -= 10);
-	lightCount = (newPlant.sunshine -= 4);
-	fertilizerCount = (newPlant.fertilizer -=3);
+let day = 1000 //day equals 1 sec
+let playUpdate = setInterval(play, day) //the count will run each 1 sec
 
-	
+//scores start going down with the timer
+function play() {
+    waterCount = (newPlant.water -= 17)
+    lightCount = (newPlant.sunshine -= 4)
+    fertilizerCount = (newPlant.fertilizer -= 2)
+    //end game if any of the scores reach 0
+    if ((waterCount <= 0) || (lightCount <= 0) || (fertilizerCount <= 0)) {
+        //then refresh all scores to 0, except main score and age
+        waterCount = 0
+        lightCount = 0
+        fertilizerCount = 0
+        clearInterval(playUpdate) //the timer stops running
+        alert(`Your score is ${score}`)
+    }
 
-	
-		
-	if ((waterCount <= 0) || (lightCount <= 0) || (fertilizerCount <= 0)) {
-		waterCount = 0;
-		lightCount = 0;
-		fertilizerCount = 0;
-		clearInterval(playUpdate);
-		alert(`Your score is ${score}`)
-	}
-
-    score++
-    age+=1
+    score += 1
+    age += 1
     mainScore.innerHTML = score
-	waterScore.innerHTML = waterCount
-	lightScore.innerHTML = lightCount
-	ferScore.innerHTML = fertilizerCount
+    waterScore.innerHTML = waterCount
+    lightScore.innerHTML = lightCount
+    ferScore.innerHTML = fertilizerCount
     ageScore.innerHTML = age
-   
-	newPlant.clock()
-}
 
+
+}
+play()
