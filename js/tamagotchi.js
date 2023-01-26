@@ -37,12 +37,21 @@ let inputName = prompt("Please, enter a name for your plant:", "")
 const newPlant = new Tamagotchi(inputName)
 
 
-//buttons declared
+//buttons declared + methods called using eventListeners
 const waterButton = document.querySelector("#water-button")
-const lightButton = document.querySelector("#light-button")
-const ferButton = document.querySelector("#fer-button")
+waterButton.addEventListener("click", ()=>
+newPlant.addWater())
 
-//scores declared
+
+const lightButton = document.querySelector("#light-button")
+lightButton.addEventListener("click", ()=>
+newPlant.lightSwitch())
+
+const ferButton = document.querySelector("#fer-button")
+ferButton.addEventListener("click", ()=>
+newPlant.addFertilizer())
+
+//scores shown on the screen
 const mainScore = document.querySelector("#score")
 const waterScore = document.querySelector("#water")
 const lightScore = document.querySelector("#daylight")
@@ -63,9 +72,11 @@ let playUpdate = setInterval(play, day) //the count will run each 1 sec
 
 //scores start going down with the timer
 function play() {
-    waterCount = (newPlant.water -= 17)
+    waterCount = (newPlant.water -= 7)
     lightCount = (newPlant.sunshine -= 4)
     fertilizerCount = (newPlant.fertilizer -= 2)
+    score += 1
+    age += 1
     //end game if any of the scores reach 0
     if ((waterCount <= 0) || (lightCount <= 0) || (fertilizerCount <= 0)) {
         //then refresh all scores to 0, except main score and age
@@ -75,15 +86,11 @@ function play() {
         clearInterval(playUpdate) //the timer stops running
         alert(`Your score is ${score}`)
     }
-
-    score += 1
-    age += 1
     mainScore.innerHTML = score
     waterScore.innerHTML = waterCount
     lightScore.innerHTML = lightCount
     ferScore.innerHTML = fertilizerCount
     ageScore.innerHTML = age
-
 
 }
 play()

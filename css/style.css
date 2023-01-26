@@ -30,7 +30,7 @@ body{
 
 
 /* parent plant class with all plant images */
-.plant{
+.plants-container{
   position: absolute;
   top:140px;
   margin-left:300px; 
