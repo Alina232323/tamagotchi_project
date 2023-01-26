@@ -9,46 +9,31 @@
     
 </head>
 <body>
-    
-<!--    
-    <div class="screen" id="welcome">
-      
-        <h1>Welcome to Plant Guru</h1>
-        <div id="action-items">
-        <input type="text" name="name" id="name" placeholder="Enter a Name">
-        <br>
-        <br>
-        <div class="buttons">
-        <button> START</button>
-        </div>
-        <br>
-        
-       
-        </div>
-    </div> -->
-    
+     
     <div class="screen" id="game">
+        <h1>Welcome to Plant Guru</h1>
         <div class="instructions">
             <p>Welcome to the game! Start growing your plant by adding some water! Expose it to enough of a day light, and don't forget about fertilizer! Make sure your scores don't drop to 0. Good luck!</p>
         </div>
 
         <div class="scores-and-buttons">
             <div id="scores">
-            <p1>Score:</p1>
+            <p1>Score:<span id="score"></span></p1>
 
-            <p>Water:</p>
-            <p>Daylight:</p>
-            <p>Fertlized:</p>
+            <p>Water:<span id="water"></span></p>
+            <p>Daylight:<span id="daylight"></span></p>
+            <p>Fertlized: <spn id="fertilizer"></spn></p>
+            <p>Age: <spn id="age"></spn></p>
         </div>
-        <div class="buttons" id="main-buttons">
+        <div class="buttons main-buttons" id="water-button">
             <button>Water</button><br>
         </div>
         <br>
-        <div class="buttons" id="main-buttons">
+        <div class="buttons main-buttons" id="light-button">
             <button>Light on/off</button><br>
         </div>
        <br>
-        <div class="buttons" id="main-buttons">
+        <div class="buttons main-buttons" id="fer-button">
             <button>Fertilize</button><br>
             </div>
             
@@ -62,21 +47,8 @@
     
     </div>
     </div>
-     
-   
-        
-       
-    
-  
    
     <script src="./js/tamagotchi.js" ></script>
     
 </body>
-
-
-
-   
-
-   
-
 </html>
