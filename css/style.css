@@ -10,36 +10,32 @@ body{
     height: 100%;
     overflow: hidden;
     position: relative;
-    
-  
    }
-/* body{
-    background: url("/images/night.jpg")no-repeat center fixed;
-    background-position: 1px 8px;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: 100% 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    
-   }
-   */
-
-
 
 /* parent plant class with all plant images */
 .plants-container{
   position: absolute;
   top:140px;
   margin-left:300px; 
+  /* animation configs */
+  -webkit-animation: mover 2s infinite  alternate;  
+  animation: mover 2s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
 
 #empty{
+  position: relative;
   z-index:1;
 }
 #start-growing{
+  position: relative;
   z-index: -1;
 }
 #growing-plant {
@@ -49,18 +45,7 @@ body{
   z-index:-3;
 }
 
-
-
-::placeholder{
-    color: rgb(205, 205, 205);
-    font-size: 1rem;
-
-}
-input{
-    padding:10px;
-    border-radius:10px;
-}
-.buttons{
+.main-buttons{
 
       background-color: #3DD1E7;
       border: 0 solid #E5E7EB;
@@ -110,7 +95,13 @@ input{
       }
     }
 
-
+   .main-buttons{
+    width: 60%;
+    margin-left: 850px;
+    top:-400px;
+    right: -150px;
+      
+   }
 
 .scores-and-buttons{
  
@@ -121,14 +112,6 @@ input{
   margin-left:20px;
   justify-content: left;
  
-}
-
-.main-buttons{
-  width: 60%;
-  margin-left: 850px;
-  top:-400px;
-  right: -150px;
-  
 }
 
 /* main screen */
@@ -148,7 +131,6 @@ input{
   border-radius: 20px;
   opacity: calc(70%);
 }
-
 
 /* neon Score sign */
 p1{

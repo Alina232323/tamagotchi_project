@@ -20,18 +20,6 @@ class Tamagotchi {
         this.fertilizer += 10
     }
 
-    changePlantAppearence() {
-        if (this.age.innerHTML <= 1) {
-            document.body.style.display = "url(/images/empty.png)"
-        } else if (this.age.innerHTML > 1 && this.age.innerHTML <= 5) {
-            document.body.style.display = "url(/images/atart-growing.png)"
-        } else if (this.age.innerHTML > 5 && this.age.innerHTML <= 10) {
-            document.body.style.display = "url(/images/growing-plant.png)"
-        } else if (this.age.innerHTML > 10 && this.age.innerHTML <= 20) {
-            document.body.style.display = "url(/images/grown-plant.png)"
-        }
-    }
-
 }
 let inputName = prompt("Please, enter a name for your plant:", "")
 const newPlant = new Tamagotchi(inputName)
@@ -66,7 +54,6 @@ let score = 0
 let age = 0
 
 
-
 let day = 1000 //day equals 1 sec
 let playUpdate = setInterval(play, day) //the count will run each 1 sec
 
@@ -86,6 +73,7 @@ function play() {
         clearInterval(playUpdate) //the timer stops running
         alert(`Your score is ${score}`)
     }
+    
     mainScore.innerHTML = score
     waterScore.innerHTML = waterCount
     lightScore.innerHTML = lightCount
@@ -94,3 +82,30 @@ function play() {
 
 }
 play()
+
+
+
+
+
+//character switcher
+// if (age <= 1) {
+//     document.getElementById("#empty").style.display = "block"
+//     document.getElementById("#start-growing").style.display = "none"
+//     document.getElementById("#growing-plant").style.display = "none"
+//     document.getElementById("#grown-plant").style.display = "none"
+// } else if (age > 1 && age <= 5) {
+//     document.getElementById("#empty").style.display = "none"
+//     document.getElementById("#start-growing").style.display = "block"
+//     document.getElementById("#growing-plant").style.display = "none"
+//     document.getElementById("#grown-plant").style.display = "none"
+// } else if (age > 5 && age <= 10) {
+//     document.getElementById("#empty").style.display = "none"
+//     document.getElementById("#start-growing").style.display = "none"
+//     document.getElementById("#growing-plant").style.display = "block"
+//     document.getElementById("#grown-plant").style.display = "none"
+// } else if (age > 10 && age <= 20) {
+//     document.getElementById("#empty").style.display = "none"
+//     document.getElementById("#start-growing").style.display = "none"
+//     document.getElementById("#growing-plant").style.display = "none"
+//     document.getElementById("#grown-plant").style.display = "block"
+// }
