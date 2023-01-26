@@ -8,7 +8,7 @@ class Tamagotchi{
         this.water = maxWater;
         this.sunshine = maxLight;
         this.fertilizer = maxFertilizer;
-        this.age = document.querySelectorAll("#tamagotchi")
+        this.age = 0;
         this.score = 0;
     }
 }
@@ -33,31 +33,17 @@ const ageScore = document.querySelector("#age")
 
 let day = 10
 
-
-
-//add event listeners to each button + call functions for each button
-waterButton.addEventListener("click", () =>{
-    newPlant.addWater()
-})
-lightButton.addEventListener("click", () =>{
-    newPlant.lightSwitch()
-})
-ferButton.addEventListener("click", () =>{
-    newPlant.addFertilizer()
-})
-
-
 addWater=()=>{
-    newPlant.water += 3
+    this.water +=10
     document.body.style.backgroundImage = "url(/images/night.jpg)"
 }
 
 lightSwitch=()=>{
-    newPlant.sunshine +=2
+    this.sunshine +=10
     document.body.style.backgroundImage = "url(/images/day.jpg)"
 }
 addFertilizer =()=> {
-	newPlant.fertilizer+=5 
+	this.fertilizer+=10 
 }
 
 newPlant.clock = function() {
@@ -65,14 +51,24 @@ newPlant.clock = function() {
     this.sunshine-=1
     this.fertilizer-=1
     this.age+=1
-};
+}
+//add event listeners to each button + call functions for each button
+waterButton.addEventListener("click", () =>{
+    return this.addWater()
+})
+lightButton.addEventListener("click", () =>{
+    return this.lightSwitch()
+})
+ferButton.addEventListener("click", () =>{
+    return this.addFertilizer()
+})
 
 
 changeTamagotchiPhase=()=>{
     if(newPlant.age.innerHTML <= 5){
-        document.body.style.display = empty.innerHTML
+        document.body.style.display ="url(/images/empty.jpg)"
     }else if(newPlant.age.innerHTML > 5 && newPlant.age.innerHTML <= 10){
-        document.body.style.display =start-growing.InnerHTML
+        document.body.style.display ="url(/images/atart-growing.jpg)"
     }else if(newPlant.age.innerHTML > 5 && newPlant.age.innerHTML <= 10){
         document.body.style.display = "url(/images/growing-plant.jpg)"
     }else if(newPlant.age.innerHTML > 10 && newPlant.age.innerHTML <= 20){
